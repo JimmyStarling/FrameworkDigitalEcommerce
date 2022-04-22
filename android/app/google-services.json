@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "99449563389",
+    "project_id": "frameworkdigitalecommerce",
+    "storage_bucket": "frameworkdigitalecommerce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:99449563389:android:74d75793db8922e2c1f694",
+        "android_client_info": {
+          "package_name": "frameworkdigital.ecommerce.com.br.framework_digital_ecommerce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "99449563389-fgsn1aig8dcqaqgra2uq0k8tm7kvfgcp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA45b3lDEgQycONnbX6EfnOsPKJCbWG9w4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "99449563389-fgsn1aig8dcqaqgra2uq0k8tm7kvfgcp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
