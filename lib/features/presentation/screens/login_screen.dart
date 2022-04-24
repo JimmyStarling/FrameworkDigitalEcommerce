@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:framework_digital_ecommerce/features/presentation/widgets/custom_textfield.dart';
+
+import '../widgets/custom_filledbutton.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({Key? key}) : super(key: key);
@@ -61,20 +64,36 @@ class LoginScreen extends StatelessWidget {
               child: Column(children: [
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-                child: TextFormField(
-                  decoration: const InputDecoration(
-                    border: UnderlineInputBorder(),
-                    labelText: 'Email',
-                  ),
+                child: CustomTextField(
+                  hint: 'Email',
+                  onSaved: (input) {
+                    var _email = input;
+                  },
+                  validator: (value) { // TODO: Add emailValidation function;
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter some text';
+                    }
+                    return null;
+                  },
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-                child: TextFormField(
-                  decoration: const InputDecoration(
-                    border: UnderlineInputBorder(),
-                    labelText: 'Password',
-                  ),
+                child: CustomTextField(
+                  obsecure: true,
+                  hint: 'Password',
+                  onSaved: (input) {
+                    var _password = input;
+                  },
+                  validator: (input) { // TODO: Add validation method;
+                    if (input != null){
+                      if (input.isEmpty){
+                      return "*Required";
+                      } else {
+                        return null;
+                      }
+                    }
+                  }
                 ),
               ),
               const Padding(
@@ -84,17 +103,10 @@ class LoginScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 26),
                 child:
-                  ElevatedButton(
-                    onPressed: onPressed,
-                    child: const Text(
-                      'Entrar',
-                      style: TextStyle(
-                        fontFamily: 'Inter',
-                        fontSize: 17,
-                        fontWeight: FontWeight.normal,
-                      ),
-                    ),
-                  ),
+                filledButton(
+                  'Entrar', 
+                  onPressed,
+                ),
               ),
             ],
             )) // Form
