@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:framework_digital_ecommerce/app/utils/constants.dart';
+import 'package:framework_digital_ecommerce/features/presentation/screens/login_screen.dart';
+import 'package:framework_digital_ecommerce/resource/styles/theme.dart';
 
 class App extends StatelessWidget {
 	const App({Key? key}): super(key : key); 
@@ -9,17 +11,8 @@ class App extends StatelessWidget {
 		return MaterialApp(
 				debugShowCheckedModeBanner: false,
 				title: appName,
-				theme: ThemeData(
-						primarySwatch: Colors.blue
-				),
-				home: const Text(
-          'Testing',
-          style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          )  
-        ),
+				theme: AppStyles.lightTheme(),
+				home: const LoginScreen(),
 		);
 	}
 }
