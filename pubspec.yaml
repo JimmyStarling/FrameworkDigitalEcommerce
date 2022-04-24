@@ -32,7 +32,6 @@ dependencies:
 
   # Service locator
   get_it: ^7.2.0
-  # TODO: Add Mobx for State Managements
   # Value equality
   equatable: ^2.0.3
   # Functional programming with Dart
@@ -47,8 +46,14 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  # UI globals
+  asuka: any
+  # Auto gen code
   build_runner: ^2.1.10
+  # State managment
   mobx: ^2.0.7
+  # IO Sanitizing
+  string_validator: ^0.3.0
 
 dev_dependencies:
   flutter_test:
