@@ -12,7 +12,7 @@ class App extends StatelessWidget {
 				debugShowCheckedModeBanner: false,
 				title: appName,
 				theme: AppStyles.lightTheme(),
-				home: const LoginScreen(),
+				home: LoginScreen(),
 		);
 	}
 }
