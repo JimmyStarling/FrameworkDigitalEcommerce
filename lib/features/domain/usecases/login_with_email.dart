@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:framework_digital_ecommerce/features/domain/entities/user_info_entity.dart';
+import 'package:injectable/injectable.dart';
 import 'package:mobx/mobx.dart';
 import 'package:framework_digital_ecommerce/core/exceptions/failures.dart';
 import 'package:framework_digital_ecommerce/core/exceptions/login.dart';
@@ -14,7 +15,7 @@ abstract class LoginWithEmail {
   Future<Either<Failure, LoggedUserInfo>> call(LoginCredentials credential);
 }
 
-@Injectable(singleton: false)
+@Injectable()
 class LoginWithEmailImpl implements LoginWithEmail {
   final LoginRepository repository;
   final ConnectivityService service;
