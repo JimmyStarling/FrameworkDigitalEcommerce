@@ -11,7 +11,7 @@ class SignInScreen extends StatelessWidget {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final bool _autoValidate = false;
   bool _isChecked = false;
-  
+  static String routeName = "/signin";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
