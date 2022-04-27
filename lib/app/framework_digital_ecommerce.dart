@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:framework_digital_ecommerce/app/utils/constants.dart';
-import 'package:framework_digital_ecommerce/features/presentation/screens/login_screen.dart';
+import 'package:framework_digital_ecommerce/features/presentation/screens/signin/signin_screen.dart';
 import 'package:framework_digital_ecommerce/resource/styles/theme.dart';
 
 class App extends StatelessWidget {
@@ -12,7 +12,7 @@ class App extends StatelessWidget {
 				debugShowCheckedModeBanner: false,
 				title: appName,
 				theme: AppStyles.lightTheme(),
-				home: LoginScreen(),
+				home: SignInScreen(),
 		);
 	}
 }
