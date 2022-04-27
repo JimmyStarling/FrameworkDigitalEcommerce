@@ -125,7 +125,7 @@ class SignInScreen extends StatelessWidget {
     );
   }
   onPressed (context) => {
-    Navigator.pushNamed(context, 'HomeScreen'),
+    Navigator.pushNamed(context, '/home'),
   };
 
   onChecked(bool value) {
