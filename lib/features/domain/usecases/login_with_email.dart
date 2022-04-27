@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:framework_digital_ecommerce/core/exceptions/internal.dart';
 import 'package:framework_digital_ecommerce/features/domain/entities/user_info_entity.dart';
 import 'package:injectable/injectable.dart';
 import 'package:mobx/mobx.dart';
@@ -27,7 +28,8 @@ class LoginWithEmailImpl implements LoginWithEmail {
     var result = await service.isOnline();
 
     if (result.isLeft()) {
-      return result.map((r) => null);
+      result.map((r) => null);
+      return Left(InternalException(message: "Internal Error."));
     }
 
     if (!credential.isValidEmail) {
