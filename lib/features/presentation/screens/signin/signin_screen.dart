@@ -3,10 +3,10 @@ import 'package:framework_digital_ecommerce/features/presentation/components/cus
 import 'package:framework_digital_ecommerce/features/presentation/screens/home/home_screen.dart';
 import 'package:framework_digital_ecommerce/resource/values/app_color.dart';
 
-import '../components/custom_filled_button.dart';
+import '../../components/custom_filled_button.dart';
 
-class LoginScreen extends StatelessWidget {
-  LoginScreen({Key? key}) : super(key: key);
+class SignInScreen extends StatelessWidget {
+  SignInScreen({Key? key}) : super(key: key);
   
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final bool _autoValidate = false;
