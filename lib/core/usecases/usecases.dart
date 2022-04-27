@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
-import 'package:framework_digital_ecommerce/core/error/failures.dart';
+import 'package:framework_digital_ecommerce/core/exceptions/failures.dart';
 
 abstract class UseCase<Type, Equatable> {
   Future<Either<Failure, Type>> call(Equatable params);
