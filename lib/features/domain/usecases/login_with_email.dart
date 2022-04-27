@@ -2,7 +2,6 @@ import 'package:dartz/dartz.dart';
 import 'package:framework_digital_ecommerce/core/exceptions/internal.dart';
 import 'package:framework_digital_ecommerce/features/domain/entities/user_info_entity.dart';
 import 'package:injectable/injectable.dart';
-import 'package:mobx/mobx.dart';
 import 'package:framework_digital_ecommerce/core/exceptions/failures.dart';
 import 'package:framework_digital_ecommerce/core/exceptions/login.dart';
 import 'package:framework_digital_ecommerce/features/domain/entities/conectivity_entity.dart';
