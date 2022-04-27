@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:framework_digital_ecommerce/features/presentation/widgets/custom_textfield.dart';
+import 'package:framework_digital_ecommerce/features/presentation/components/custom_textfield.dart';
+import 'package:framework_digital_ecommerce/features/presentation/screens/home/home_screen.dart';
+import 'package:framework_digital_ecommerce/resource/values/app_color.dart';
 
-import '../widgets/custom_filledbutton.dart';
+import '../components/custom_filled_button.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({Key? key}) : super(key: key);
   
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final bool _autoValidate = false;
+  bool _isChecked = false;
   
   @override
   Widget build(BuildContext context) {
@@ -25,24 +28,33 @@ class LoginScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    Container(
+                    Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-                      child: const ListTile(
-                        title: Text(
-                          'Bem vindo',
-                          style: TextStyle(
-                            fontSize: 32,
-                            fontWeight: FontWeight.bold,
-                            height: 1.0,
-                          ),
-                        ), 
-                        subtitle: Text(
-                          'Faça login para continuar',
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.normal,
-                          ),
-                        ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: const <Widget>[
+                          Text(
+                            'Bem vindo',
+                            style: TextStyle(
+                              color: AppColors.SECONDARY_COLOR,
+                              fontSize: 32,
+                              fontWeight: FontWeight.bold,
+                              height: 1.0,
+                            ),
+                          ), 
+                          Padding(
+                            padding: EdgeInsets.only(left: 10),
+                            child: Text(
+                              'Faça login para continuar',
+                              style: TextStyle(
+                                color: AppColors.SECONDARY_COLOR,
+                                fontSize: 14,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                          )
+                        ]
                       ),
                     ),
                     const Padding(
@@ -51,6 +63,7 @@ class LoginScreen extends StatelessWidget {
                         Text(
                           'Registrar-se',
                           style: TextStyle(
+                            color: AppColors.SECONDARY_COLOR,
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
                           )
@@ -95,17 +108,13 @@ class LoginScreen extends StatelessWidget {
                     }
                   }
                 ),
-              ),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 16),
-                child: Divider(color: Colors.black12),
-              ),
+              ), 
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 26),
                 child:
                 filledButton(
                   'Entrar', 
-                  onPressed,
+                  onPressed(context),
                 ),
               ),
             ],
@@ -115,7 +124,11 @@ class LoginScreen extends StatelessWidget {
       )
     );
   }
-  onPressed () => {
-    print("testing")
+  onPressed (context) => {
+    Navigator.pushNamed(context, 'HomeScreen'),
   };
+
+  onChecked(bool value) {
+    print(value);
+  }
 }
