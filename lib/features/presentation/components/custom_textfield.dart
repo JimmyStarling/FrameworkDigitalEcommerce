@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:framework_digital_ecommerce/resource/values/app_color.dart';
 
 class CustomTextField extends StatelessWidget {
-  CustomTextField(
-    {
+  const CustomTextField({
       required this.hint,
       this.obsecure = false,
       required this.validator,
