@@ -20,55 +20,62 @@ class SignInScreen extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(top: 40),
-              child:
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: const <Widget>[
-                          Text(
-                            'Bem vindo',
-                            style: TextStyle(
-                              color: AppColors.SECONDARY_COLOR,
-                              fontSize: 32,
-                              fontWeight: FontWeight.bold,
-                              height: 1.0,
-                            ),
-                          ), 
-                          Padding(
-                            padding: EdgeInsets.only(left: 10),
-                            child: Text(
-                              'Faça login para continuar',
-                              style: TextStyle(
-                                color: AppColors.SECONDARY_COLOR,
-                                fontSize: 14,
-                                fontWeight: FontWeight.normal,
-                              ),
-                            ),
-                          )
-                        ]
-                      ),
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.all(0.2),
-                      child:
-                        Text(
-                          'Registrar-se',
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+            SizedBox(
+              width: double.infinity,
+              height: 200,
+              child: Center(
+                child: Image.asset('assets/images/Logo.png')
+              ),
+            ),
+              ]),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 20),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: const <Widget>[
+                      Text(
+                        'Bem vindo',
+                        style: TextStyle(
+                          color: AppColors.SECONDARY_COLOR,
+                          fontSize: 32,
+                          fontWeight: FontWeight.bold,
+                          height: 1.0,
+                        ),
+                      ), 
+                      Padding(
+                        padding: EdgeInsets.only(left: 10),
+                        child: Text(
+                          'Faça login para continuar',
                           style: TextStyle(
                             color: AppColors.SECONDARY_COLOR,
                             fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                          )
+                            fontWeight: FontWeight.normal,
+                          ),
                         ),
-                    )
-                  ],
+                      )
+                    ]
+                  ),
                 ),
+                const Padding(
+                  padding: EdgeInsets.all(0.2),
+                  child:
+                    Text(
+                      'Registrar-se',
+                      style: TextStyle(
+                        color: AppColors.SECONDARY_COLOR,
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      )
+                    ),
+                )
+              ],
             ),
             Form(
               key: _formKey,
@@ -88,25 +95,28 @@ class SignInScreen extends StatelessWidget {
                   },
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-                child: CustomTextField(
-                  obsecure: true,
-                  hint: 'Password',
-                  onSaved: (input) {
-                    var _password = input;
-                  },
-                  validator: (input) { // TODO: Add validation method;
-                    if (input != null){
-                      if (input.isEmpty){
-                      return "*Required";
-                      } else {
-                        return null;
+              Expanded(
+                child: 
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                  child: CustomTextField(
+                    obsecure: true,
+                    hint: 'Password',
+                    onSaved: (input) {
+                      var _password = input;
+                    },
+                    validator: (input) { // TODO: Add validation method;
+                      if (input != null){
+                        if (input.isEmpty){
+                        return "*Required";
+                        } else {
+                          return null;
+                        }
                       }
                     }
-                  }
-                ),
-              ), 
+                  ),
+                ), 
+              ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 26),
                 child:
@@ -146,7 +156,7 @@ class SignInScreen extends StatelessWidget {
                 ),
               )
             ],
-            )) // Form
+            ))
           ],
         ),  
       )
