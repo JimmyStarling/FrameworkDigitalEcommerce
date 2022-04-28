@@ -3,8 +3,6 @@ import 'package:framework_digital_ecommerce/features/presentation/components/cus
 import 'package:framework_digital_ecommerce/features/presentation/screens/home/home_screen.dart';
 import 'package:framework_digital_ecommerce/resource/values/app_color.dart';
 
-import '../../components/custom_filled_button.dart';
-
 class SignInScreen extends StatelessWidget {
   SignInScreen({Key? key}) : super(key: key);
   
@@ -112,11 +110,41 @@ class SignInScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 26),
                 child:
-                filledButton(
-                  'Entrar', 
-                  onPressed(context),
+                SizedBox(
+                  child:
+                  Expanded(
+                    child: 
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: <Widget>[
+                      ElevatedButton(
+                        style:
+                        ButtonStyle(
+                          padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.symmetric(vertical: 25)),
+                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18.0),
+                              side: const BorderSide(color: AppColors.SECONDARY_COLOR),
+                            )
+                          )
+                        ),
+                        child: const Text(
+                          'Entrar',
+                          style: TextStyle(
+                                    fontFamily: 'Inter',
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                        ),
+                        onPressed: () {
+                          onLogin(context);
+                        },
+                      )
+                      ]
+                    )
+                  )
                 ),
-              ),
+              )
             ],
             )) // Form
           ],
@@ -124,8 +152,8 @@ class SignInScreen extends StatelessWidget {
       )
     );
   }
-  onPressed (context) => {
-    Navigator.pushNamed(context, '/home'),
+  onLogin (context) => {
+    Navigator.pushNamed(context, '/home')
   };
 
   onChecked(bool value) {
