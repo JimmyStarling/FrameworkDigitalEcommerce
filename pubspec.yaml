@@ -51,6 +51,7 @@ dependencies:
   # UI globals
   asuka: any
   font_awesome_flutter: ^10.1.0
+  carousel_slider: ^4.1.1
   # Auto gen code
   build_runner: ^2.1.10
   # State managment
