@@ -58,11 +58,11 @@ class Body extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 20),
-                /*Column(
+                Column(
                   children: [
-                    CustomCard(context, cardsArray)
+                    CustomCard(context,cardsArray)
                   ],
-                )*/
+                )
                 ]
               ),
             ],
