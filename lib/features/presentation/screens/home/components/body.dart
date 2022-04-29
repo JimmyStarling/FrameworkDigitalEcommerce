@@ -45,6 +45,7 @@ class Body extends StatelessWidget {
                   )
                 ]
               ),
+<<<<<<< HEAD
 							StreamBuilder(
 								stream: FirebaseFirestore.instance.collection('fruits').snapshots(),
 								builder: (context, snapshot){
@@ -57,6 +58,34 @@ class Body extends StatelessWidget {
 									)
 								}
 							),
+=======
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    Container(
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(40),
+                        ),
+                        color: AppColors.SECONDARY_COLOR,
+                      ),
+                    )
+                  ],
+                ),
+                const SizedBox(height: 20),
+                Column(
+                  children: [
+                    CustomCard(context,cardsArray)
+                  ],
+                )
+                ]
+              ),
+>>>>>>> 057239fd2e316309e71cdc3d621956c28a41202d
             ],
           )
 			);
