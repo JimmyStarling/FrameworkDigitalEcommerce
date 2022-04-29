@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:framework_digital_ecommerce/features/presentation/components/custom_card.dart';
 import 'package:framework_digital_ecommerce/resource/values/app_color.dart';
+import 'package:framework_digital_ecommerce/features/presentation/components/list_product.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
+	
+	//FirebaseFirestore firestore = FirebaseFirestore.instance;
 
 	cardsArray(int value) {
     if (value == 1) {
@@ -19,11 +24,12 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: SingleChildScrollView(
+      //child: SingleChildScrollView(
         child: 
-          Column(
+          Row(
+						mainAxisAlignment: MainAxisAlignment.center,
+						crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              const SizedBox(height: 100),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -39,35 +45,21 @@ class Body extends StatelessWidget {
                   )
                 ]
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    Container(
-                      decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(40),
-                        ),
-                        color: AppColors.SECONDARY_COLOR,
-                      ),
-                    )
-                  ],
-                ),
-                const SizedBox(height: 20),
-                /*Column(
-                  children: [
-                    CustomCard(context, cardsArray)
-                  ],
-                )*/
-                ]
-              ),
+							StreamBuilder(
+								stream: FirebaseFirestore.instance.collection('fruits').snapshots(),
+								builder: (context, snapshot){
+									if (snapshot.hasData!) return const Text('Loading..');
+									return ListView.builder(
+										itemExtent: 80.0,
+										itemCount: snapshot.data.documents.length,
+										itemBuilder: (context, index) =>
+											_buildListProduct(context, snapshot.data.documents[index]),
+									)
+								}
+							),
             ],
           )
-      )
-    );
+			);
+    
   }
 }
